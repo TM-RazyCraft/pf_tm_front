@@ -1,31 +1,35 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import { Menu, X } from 'lucide-react';
+import { CONSTANTS } from '../constants/Constant';
 
 interface NavigationProps {
   activeSection: string;
-  onNavigate: (section: string) => void;
+  onNavigate: (section: SectionId) => void;
+}
+interface NavItem {
+  id: SectionId;
+  label: string;
 }
 
-export function Navigation({ activeSection, onNavigate }: NavigationProps) {
+type SectionId = typeof CONSTANTS.SECTION[keyof typeof CONSTANTS.SECTION];
+
+export const Navigation: FC<NavigationProps> = ({ activeSection, onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { id: 'top', label: 'TOP' },
-    { id: 'profile', label: 'PROFILE' },
-    { id: 'skills', label: 'SKILLS' },
+  const navItems: NavItem[] = [
+    { id: CONSTANTS.SECTION.TOP, label: CONSTANTS.SECTION.TOP.toUpperCase() },
+    { id: CONSTANTS.SECTION.PROFILE, label: CONSTANTS.SECTION.PROFILE.toUpperCase() },
+    { id: CONSTANTS.SECTION.SKILLS, label: CONSTANTS.SECTION.SKILLS.toUpperCase() },
   ];
 
-  const handleNavClick = (id: string) => {
+  const handleNavClick = (id: SectionId): void => {
     onNavigate(id);
     setIsMobileMenuOpen(false);
   };
@@ -40,13 +44,12 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
           <button
-            onClick={() => handleNavClick('top')}
-            className="text-xl sm:text-2xl tracking-wider text-orange-500 hover:text-orange-400 transition-colors"
+            onClick={() => handleNavClick(CONSTANTS.SECTION.TOP)}
+            className="text-xl sm:text-2xl tracking-wider text-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
             style={{ fontFamily: 'Bebas Neue, sans-serif' }}
           >
-            PORTFOLIO
+            RAZYCRAFT
           </button>
 
           {/* Desktop Navigation */}
@@ -55,7 +58,7 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`relative px-1 py-2 tracking-wider transition-colors ${
+                className={`relative px-1 py-2 tracking-wider transition-colors cursor-pointer ${
                   activeSection === item.id
                     ? 'text-orange-500'
                     : 'text-gray-300 hover:text-white'
@@ -103,4 +106,4 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
       )}
     </nav>
   );
-}
+};

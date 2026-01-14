@@ -1,22 +1,29 @@
-import { useState, useEffect } from 'react';
-import { Hero } from './components/Hero';
+import React, { useState, useEffect, FC } from 'react';
+import { Top } from './components/Top';
 import { Profile } from './components/Profile';
 import { Skills } from './components/Skills';
 import { Navigation } from './components/Navigation';
+import { CONSTANTS } from './constants/Constant';
 
-export default function App() {
-  const [activeSection, setActiveSection] = useState('top');
+type SectionId = typeof CONSTANTS.SECTION[keyof typeof CONSTANTS.SECTION];
+
+const App: FC = () => {
+  const [activeSection, setActiveSection] = useState<SectionId>(CONSTANTS.SECTION.TOP);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['top', 'profile', 'skills'];
+    const handleScroll = (): void => {
+      const sections: SectionId[] = [
+        CONSTANTS.SECTION.TOP, 
+        CONSTANTS.SECTION.PROFILE, 
+        CONSTANTS.SECTION.SKILLS
+      ];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          const { offsetTop: elementOffsetTop, offsetHeight: elementOffsetHeight } = element;
+          if (scrollPosition >= elementOffsetTop && scrollPosition < elementOffsetTop + elementOffsetHeight) {
             setActiveSection(sectionId);
             break;
           }
@@ -28,11 +35,9 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId: SectionId): void => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -44,7 +49,7 @@ export default function App() {
       
       <main>
         <section id="top">
-          <Hero />
+          <Top />
         </section>
         
         <section id="profile">
@@ -58,9 +63,11 @@ export default function App() {
       
       <footer className="bg-black border-t border-orange-500/20 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-          <p>&copy; 2026 Frontend Engineer Portfolio. All rights reserved.</p>
+          <p>&copy; 2026 TM. All rights reserved.</p>
         </div>
       </footer>
     </div>
   );
-}
+};
+
+export default App;

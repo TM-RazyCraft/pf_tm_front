@@ -1,7 +1,8 @@
+import React, { FC } from 'react';
 import { motion } from 'motion/react';
 import { Code, Briefcase, Mail, Github, Linkedin } from 'lucide-react';
 
-export function Profile() {
+export const Profile: FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-[#0a0a0a] to-black py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
@@ -165,17 +166,9 @@ export function Profile() {
                 </a>
               </div>
             </div>
-
-            {/* CTA Button */}
-            <button
-              className="w-full py-4 bg-orange-500 hover:bg-orange-600 text-white tracking-wider transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-orange-500/50"
-              style={{ fontFamily: 'Oswald, sans-serif' }}
-            >
-              DOWNLOAD RESUME
-            </button>
           </motion.div>
         </div>
       </div>
     </div>
   );
-}
+};

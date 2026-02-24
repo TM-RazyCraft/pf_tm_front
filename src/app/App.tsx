@@ -1,11 +1,13 @@
 import React, { useState, useEffect, FC } from 'react';
-import { Top } from './components/Top';
-import { Profile } from './components/Profile';
-import { Skills } from './components/Skills';
-import { Navigation } from './components/Navigation';
-import { CONSTANTS } from './constants/Constant';
-
-type SectionId = typeof CONSTANTS.SECTION[keyof typeof CONSTANTS.SECTION];
+import { Top } from '@/features/top/Top';
+import { Profile } from '@/features/profile/Profile';
+import { Skills } from '@/features/skills/Skills';
+import { Tools } from '@/features/tools/Tools';
+import { Expertise } from '@/features/expertise/Expertise';
+import { Navigation } from '@/components/navigation';
+import { Footer } from '@/components/footer';
+import { CONSTANTS } from '@/constants/Constant';
+import { SectionId } from '@/types/app';
 
 const App: FC = () => {
   const [activeSection, setActiveSection] = useState<SectionId>(CONSTANTS.SECTION.TOP);
@@ -15,7 +17,9 @@ const App: FC = () => {
       const sections: SectionId[] = [
         CONSTANTS.SECTION.TOP, 
         CONSTANTS.SECTION.PROFILE, 
-        CONSTANTS.SECTION.SKILLS
+        CONSTANTS.SECTION.SKILLS,
+        CONSTANTS.SECTION.TOOLS,
+        CONSTANTS.SECTION.EXPERTISE
       ];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
@@ -37,7 +41,7 @@ const App: FC = () => {
 
   const scrollToSection = (sectionId: SectionId): void => {
     const element = document.getElementById(sectionId);
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
+    if (element) element.scrollIntoView({ behavior: 'smooth' });;
   };
 
   return (
@@ -59,13 +63,17 @@ const App: FC = () => {
         <section id="skills">
           <Skills />
         </section>
+        
+        <section id="tools">
+          <Tools />
+        </section>
+
+        <section id="expertise">
+          <Expertise />
+        </section>
       </main>
       
-      <footer className="bg-black border-t border-orange-500/20 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-          <p>&copy; 2026 TM. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

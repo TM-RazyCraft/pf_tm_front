@@ -19,3 +19,21 @@ export interface User {
   email: string;
   role?: string;
 }
+
+export type SectionId = 'top' | 'expertise' | 'skills' | 'tools' | 'profile';
+
+export interface AppConstants {
+  SECTION: {
+    TOP: SectionId;
+    EXPERTISE: SectionId;
+    SKILLS: SectionId;
+    TOOLS: SectionId;
+    PROFILE: SectionId;
+  },
+  SECTION_LABELS: {
+    PROFILE: string;
+    SKILLS: string;
+    TOOLS: string;
+    EXPERTISE: string;
+  },
+}

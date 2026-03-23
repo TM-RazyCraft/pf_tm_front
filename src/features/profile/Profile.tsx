@@ -35,12 +35,12 @@ export const Profile: FC = () => {
                 </h3>
               </div>
               <p className="text-gray-300 leading-relaxed mb-4">
-                情熱を持ってコードを書くフロントエンドエンジニアです。
-                ハーレーダビッドソンのバイクが大好きで、自由と冒険の精神を大切にしています。
+                社会の常識を変えたWEB技術に魅力を感じて以来WEB業界にずっと身を置いているフロントエンジニア
               </p>
               <p className="text-gray-300 leading-relaxed">
-                最新のWeb技術を駆使し、ユーザーに感動を与える体験を作り出すことに喜びを感じています。
-                常に新しい技術を学び、成長し続けることを心がけています。
+                デザイン・新規開発・運用に仕様提案から要件定義。上流から下流まで全てを対応<br />
+                ハイブリッドアプリの開発はキックオフからアプリ公開までワンストップで対応<br />
+                最近Unityに興味有り
               </p>
             </div>
 
@@ -59,22 +59,19 @@ export const Profile: FC = () => {
                   <p className="text-orange-500 mb-1" style={{ fontFamily: 'Oswald, sans-serif' }}>
                     2022 - PRESENT
                   </p>
-                  <h4 className="text-white mb-1">Senior Frontend Engineer</h4>
-                  <p className="text-gray-400 text-sm">Tech Startup Co.</p>
+                  <h4 className="text-white mb-1">フロントエンジニアリーダー 兼任技術主任</h4>
                 </div>
                 <div className="border-l-2 border-orange-500/50 pl-4">
                   <p className="text-orange-500/80 mb-1" style={{ fontFamily: 'Oswald, sans-serif' }}>
-                    2019 - 2022
+                    2016 - 2022
                   </p>
-                  <h4 className="text-white mb-1">Frontend Engineer</h4>
-                  <p className="text-gray-400 text-sm">Digital Agency Inc.</p>
+                  <h4 className="text-white mb-1">フロントエンジニア デザイナー</h4>
                 </div>
                 <div className="border-l-2 border-orange-500/30 pl-4">
                   <p className="text-orange-500/60 mb-1" style={{ fontFamily: 'Oswald, sans-serif' }}>
-                    2017 - 2019
+                    2013 - 2016
                   </p>
-                  <h4 className="text-white mb-1">Junior Frontend Developer</h4>
-                  <p className="text-gray-400 text-sm">Web Solutions Ltd.</p>
+                  <h4 className="text-white mb-1">QA アシスタントディレクター</h4>
                 </div>
               </div>
             </div>
@@ -98,20 +95,16 @@ export const Profile: FC = () => {
               </h3>
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-gray-700">
-                  <span className="text-gray-400">Name:</span>
-                  <span className="text-white">Taro Yamada</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-gray-700">
                   <span className="text-gray-400">Location:</span>
-                  <span className="text-white">Tokyo, Japan</span>
+                  <span className="text-white">福岡県福岡市</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-700">
                   <span className="text-gray-400">Email:</span>
-                  <span className="text-white">taro@example.com</span>
+                  <span className="text-white">work.tm.razycraft@gmail.com</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-700">
                   <span className="text-gray-400">Available:</span>
-                  <span className="text-orange-500">Freelance</span>
+                  <span className="text-orange-500">正社員</span>
                 </div>
               </div>
             </div>
@@ -126,34 +119,23 @@ export const Profile: FC = () => {
               </h3>
               <div className="grid grid-cols-1 gap-3">
                 <a
-                  href="mailto:taro@example.com"
+                  href="mailto:work.tm.razycraft@gmail.com"
                   className="flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-orange-500/20 border border-gray-700 hover:border-orange-500 transition-all duration-300 group"
                 >
                   <Mail className="text-orange-500 group-hover:scale-110 transition-transform" size={20} />
                   <span className="text-gray-300 group-hover:text-white transition-colors">
-                    taro@example.com
+                    work.tm.razycraft@gmail.com
                   </span>
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/TM-RazyCraft"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-orange-500/20 border border-gray-700 hover:border-orange-500 transition-all duration-300 group"
                 >
                   <Github className="text-orange-500 group-hover:scale-110 transition-transform" size={20} />
                   <span className="text-gray-300 group-hover:text-white transition-colors">
-                    github.com/taroyamada
-                  </span>
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-orange-500/20 border border-gray-700 hover:border-orange-500 transition-all duration-300 group"
-                >
-                  <Linkedin className="text-orange-500 group-hover:scale-110 transition-transform" size={20} />
-                  <span className="text-gray-300 group-hover:text-white transition-colors">
-                    linkedin.com/in/taroyamada
+                    github.com/TM-RazyCraft
                   </span>
                 </a>
               </div>
